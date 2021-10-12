@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-project",
+  "version": "1.0.0",
+  "description": "First nodejs project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eunhyung-lee/wetube-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eunhyung-lee/wetube-clone/issues"
+  },
+  "homepage": "https://github.com/eunhyung-lee/wetube-clone#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "nodemon": "^2.0.13"
+  }
+}
