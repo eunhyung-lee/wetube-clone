@@ -21,3 +21,6 @@ First nodejs Course.
    2. git add .
    3. git commit -m "text"
    4. git push -u origin master
+7. server
+   GET : [[HTTP method.]]
+   HTTP : how we talk to server. website에 접속하고 server에 정보를 보내는 방법
