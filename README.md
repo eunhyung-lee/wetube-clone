@@ -24,3 +24,4 @@ First nodejs Course.
 7. server
    GET : [[HTTP method.]]
    HTTP : how we talk to server. website에 접속하고 server에 정보를 보내는 방법
+   How HTTP Request run
