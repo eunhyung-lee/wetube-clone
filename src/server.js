@@ -11,8 +11,12 @@ const handleHome = (req, res) => {
 const handleLogin = (req, res) => {
   return res.send("Login here");
 };
+const gossipMiddleware = (req, res, next) => {
+  console.log("i'm in the middle");
+  next(); //
+};
 
-app.get("/", handleHome); // /에 접속할 경우 handleHome 실행
+app.get("/", gossipMiddleware, handleHome); // /에 접속할 경우 handleHome 실행
 app.get("/login", handleLogin);
 
 const handleListening = () => {

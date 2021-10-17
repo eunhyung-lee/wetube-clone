@@ -21,10 +21,12 @@ First nodejs Course.
    2. git add .
    3. git commit -m "text"
    4. git push -u origin master
-7. server
+7. server - request and response
    GET : [[HTTP method.]]
    HTTP : how we talk to server. website에 접속하고 server에 정보를 보내는 방법
    How HTTP Request run. request - reponse
    1. request : server로 무언가를 요청
    2. return res.end() : kill request
    3. return res.send("text") : send text
+8. middleware == middle software == handler == controller
+   next argument << next() 함수를 실행 시 app.get의 다음 함수를 실행
