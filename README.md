@@ -30,3 +30,4 @@ First nodejs Course.
    3. return res.send("text") : send text
 8. middleware == middle software == handler == controller
    next argument << next() 함수를 실행 시 app.get의 다음 함수를 실행
+   app.use() : global middleware
