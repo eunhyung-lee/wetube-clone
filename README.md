@@ -35,14 +35,17 @@ First nodejs Course.
    morgan function return middleware
 10. router : controller와 url을 관리.
     #Wetube Reloaded
+    global router, marketing side exception
     / -> Holme
     /join -> Join
     /loin -> Login
     /search -> Search
 
+    user router
     /users/edit -> Edit user
     /users/delete -> Delete user
 
+    video router
     /videos/watch -> Watch Video
     /videos/edit -> Edit Video
     /videose/delete -> Delete Video
