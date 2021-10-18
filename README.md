@@ -31,3 +31,18 @@ First nodejs Course.
 8. middleware == middle software == handler == controller
    next argument << next() 함수를 실행 시 app.get의 다음 함수를 실행
    app.use() : global middleware
+9. morgan
+   morgan function return middleware
+10. router : controller와 url을 관리.
+    #Wetube Reloaded
+    / -> Holme
+    /join -> Join
+    /loin -> Login
+    /search -> Search
+
+    /users/edit -> Edit user
+    /users/delete -> Delete user
+
+    /videos/watch -> Watch Video
+    /videos/edit -> Edit Video
+    /videose/delete -> Delete Video
