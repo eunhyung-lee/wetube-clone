@@ -48,4 +48,9 @@ First nodejs Course.
     video router
     /videos/watch -> Watch Video
     /videos/edit -> Edit Video
-    /videose/delete -> Delete Video
+
+11. cleaning the code
+    devide and conquer
+    every file is module
+    js 파일끼리는 완전히 private하기 때문에 export-import로 연결해줘야된다
+    default exports
