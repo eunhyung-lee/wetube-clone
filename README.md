@@ -53,4 +53,5 @@ First nodejs Course.
     devide and conquer
     every file is module
     js 파일끼리는 완전히 private하기 때문에 export-import로 연결해줘야된다
-    default exports
+    default exports -> 이름 변경 가능
+    router와 controller는 같은곳에 두지 않는것이 좋다
