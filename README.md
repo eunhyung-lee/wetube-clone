@@ -59,3 +59,10 @@ First nodejs Course.
     js 파일끼리는 완전히 private하기 때문에 export-import로 연결해줘야된다
     default exports -> 이름 변경 가능
     router와 controller는 같은곳에 두지 않는것이 좋다
+12. URL parameter
+    :id : parameter, req.params로 확인 가능
+    express routing/regular exprss
+    /ab?cd b optional
+    /ab+cd b duplicate
+    /ab*cd anything at *
+    /ab(cd)?e optional group
