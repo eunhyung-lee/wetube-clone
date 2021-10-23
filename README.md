@@ -42,12 +42,16 @@ First nodejs Course.
     /search -> Search
 
     user router
-    /users/edit -> Edit user
-    /users/delete -> Delete user
+    /users/:id -> See User
+    /users/logoug -> Log Out
+    /users/edit -> Edit My Profile
+    /users/delete -> Delete My user
 
     video router
-    /videos/watch -> Watch Video
+    /videos/:id -> Watch Video
     /videos/edit -> Edit Video
+    /videos/delete -> Delete Video
+    /videos/upload -> Upload Video
 
 11. cleaning the code
     devide and conquer
