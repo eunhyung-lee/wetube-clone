@@ -68,4 +68,9 @@ First nodejs Course.
     /ab(cd)?e optional group
 13. Return HTML
     res.send에 html에 입력해서 보내기
-    using pug
+    using pug (html view engine)
+    - install pug
+    - set pug
+    - create pug file
+    - Controller에서 res.render("viewname") 으로 rendering
+    - process.cwd() : current working directory
