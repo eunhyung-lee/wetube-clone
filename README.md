@@ -74,3 +74,8 @@ First nodejs Course.
     - create pug file
     - Controller에서 res.render("viewname") 으로 rendering
     - process.cwd() : current working directory
+    - pug views folder 위치 변경 : app.set(views,directory)
+14. partials
+    pug에서 반복되는 html을 따로 사용 가능
+    Inheritance : base of html
+    block : template의 창문

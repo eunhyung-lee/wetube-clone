@@ -3,11 +3,12 @@ import morgan from "morgan"; //morgan 불러오기
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-const PORT = 5000;
+const PORT = 4000;
 const app = express(); //create express application
 const logger = morgan("dev");
 
 app.set("view engine", "pug"); // view engine을 pug로 설정
+app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use("/", globalRouter);
 app.use("/users", userRouter);
