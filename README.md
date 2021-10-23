@@ -66,3 +66,6 @@ First nodejs Course.
     /ab+cd b duplicate
     /ab*cd anything at *
     /ab(cd)?e optional group
+13. Return HTML
+    res.send에 html에 입력해서 보내기
+    using pug
