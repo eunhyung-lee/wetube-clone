@@ -79,3 +79,5 @@ First nodejs Course.
     pug에서 반복되는 html을 따로 사용 가능
     Inheritance : base of html
     Extends(block) : template의 창문
+15. CSS 적용 방법
+    MVP Styles : 기본 html에 꽤 괜찮은 style을 붙여줌
