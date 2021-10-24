@@ -83,3 +83,4 @@ First nodejs Course.
     MVP Styles : 기본 html에 꽤 괜찮은 style을 붙여줌
 16. Using Conditionals (if in pug)
 17. Iteration (array)
+18. mixin is smart partials : data를받을 수 있는 HTML block
