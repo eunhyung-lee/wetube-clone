@@ -3,7 +3,7 @@ import morgan from "morgan"; //morgan 불러오기
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-const PORT = 4000;
+const PORT = 5000;
 const app = express(); //create express application
 const logger = morgan("dev");
 

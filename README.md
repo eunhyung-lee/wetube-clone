@@ -78,4 +78,4 @@ First nodejs Course.
 14. partials
     pug에서 반복되는 html을 따로 사용 가능
     Inheritance : base of html
-    block : template의 창문
+    Extends(block) : template의 창문
