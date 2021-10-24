@@ -1,5 +1,9 @@
 extends base.pug
 
 block content 
-    h1 home
-    button send
+    h2 welcome to trending videos
+    ul 
+        each video in videos 
+            li=video
+        else 
+            li sorry nothing found

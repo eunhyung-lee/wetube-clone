@@ -81,3 +81,5 @@ First nodejs Course.
     Extends(block) : template의 창문
 15. CSS 적용 방법
     MVP Styles : 기본 html에 꽤 괜찮은 style을 붙여줌
+16. Using Conditionals (if in pug)
+17. Iteration (array)
