@@ -84,3 +84,5 @@ First nodejs Course.
 16. Using Conditionals (if in pug)
 17. Iteration (array)
 18. mixin is smart partials : data를받을 수 있는 HTML block
+19. interact with database
+    javascript
