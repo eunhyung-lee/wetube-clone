@@ -28,7 +28,7 @@ const videos = [
     rating: 5,
     comments: 2,
     createdAt: "2 minutes ago",
-    views: 59,
+    views: 1,
     id: 4,
   },
 ];
