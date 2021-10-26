@@ -86,3 +86,4 @@ First nodejs Course.
 18. mixin is smart partials : data를받을 수 있는 HTML block
 19. interact with database
     javascript
+20. GET과 POST method : 검색등에는 GET, 비밀번호 변경 등에는 POST 사용
