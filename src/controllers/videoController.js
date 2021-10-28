@@ -1,4 +1,4 @@
-const videos = [
+let videos = [
   {
     title: "first video",
     rating: 5,
@@ -39,7 +39,7 @@ export const trending = (req, res) => {
 export const see = (req, res) => {
   const id = req.params.id;
   const video = videos[id - 1];
-  return res.render("watch", { pageTitle: "Video", video });
+  return res.render("watch", { pageTitle: `Watching ${video.title}`, video });
 };
 
 export const getEdit = (req, res) => {
@@ -50,4 +50,10 @@ export const getEdit = (req, res) => {
 // export const search = (req, res) => res.send("search");
 export const upload = (req, res) => res.send("upload");
 export const deleteVideo = (req, res) => res.send("delete");
-export const postEdit = () => {};
+export const postEdit = (req, res) => {
+  const id = req.params.id;
+  const title = req.body.title;
+  videos[id - 1].title = title;
+
+  return res.redirect(`/videos/${id}`);
+};

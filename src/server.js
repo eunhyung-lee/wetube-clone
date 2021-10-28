@@ -9,7 +9,8 @@ const logger = morgan("dev");
 
 app.set("view engine", "pug"); // view engine을 pug로 설정
 app.set("views", process.cwd() + "/src/views");
-app.use(logger);
+app.use(logger); //log
+app.use(express.urlencoded({ extended: true }));
 app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
