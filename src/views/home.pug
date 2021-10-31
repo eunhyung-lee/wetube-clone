@@ -1,6 +1,12 @@
 extends base
 include mixins/video
 
+block editLink 
+    nav 
+        ul 
+            li 
+                a(href="/videos/upload") Upload Video
+                
 block content 
     h2 welcome to trending videos
     

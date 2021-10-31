@@ -2,13 +2,14 @@ import express from "express"; // express 불러오기
 import {
   see,
   getEdit,
-  upload,
+  getUpload,
   deleteVideo,
   postEdit,
+  postUpload,
 } from "../controllers/videoController";
 const videoRouter = express.Router();
 
-// videoRouter.get("/upload", upload);
+videoRouter.route("/upload").get(getUpload).post(postUpload);
 videoRouter.get("/:id(\\d+)", see); //id는 숫자만 해당.
 
 // videoRouter.get("/:id(\\d+)/edit", getEdit);
