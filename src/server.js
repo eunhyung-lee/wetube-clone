@@ -1,3 +1,4 @@
+import "./db";
 import express from "express"; // express 불러오기
 import morgan from "morgan"; //morgan 불러오기
 import globalRouter from "./routers/globalRouter";
