@@ -2,8 +2,11 @@ import { reset } from "nodemon";
 import Video from "../models/Video";
 
 export const home = (req, res) => {
-  Video.find();
-  res.render("home", { pageTitle: "Home" });
+  Video.find({}, (error, videos) => {
+    console.log("errors", error);
+    console.log("videos", videos);
+  });
+  res.render("home", { pageTitle: "Home", videos: [] });
 };
 export const see = (req, res) => {
   const id = req.params.id;
