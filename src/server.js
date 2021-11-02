@@ -1,4 +1,5 @@
 import "./db";
+import Video from "./models/Video";
 import express from "express"; // express 불러오기
 import morgan from "morgan"; //morgan 불러오기
 import globalRouter from "./routers/globalRouter";

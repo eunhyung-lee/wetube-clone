@@ -89,3 +89,4 @@ First nodejs Course.
 20. GET과 POST method : 검색등에는 GET, 비밀번호 변경 등에는 POST 사용
 21. express가 form을 처리하기 위해선 express.urlencoded를 사용해야됨. extended:true 사용. input에 name을 기준으로 가졍 22. 순서 : 1. controller, 2.router, 3.template
 22. CRUD Create, Read, Update, Delete
+23. models : database에 data의 형태를 설명
