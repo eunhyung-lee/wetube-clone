@@ -1,16 +1,19 @@
 import { reset } from "nodemon";
 import Video from "../models/Video";
 
-export const home = (req, res) => {
-  Video.find({}, (error, videos) => {
-    console.log("errors", error);
-    console.log("videos", videos);
-  });
-  res.render("home", { pageTitle: "Home", videos: [] });
+export const home = async (req, res) => {
+  // Video.find({}, (error, videos) => {
+  // });
+  try {
+    const videos = await Video.find({});
+    return res.render("home", { pageTitle: "Home", videos: [] });
+  } catch {
+    return res.render("server-error");
+  }
 };
 export const see = (req, res) => {
   const id = req.params.id;
-  return res.render("watch", { pageTitle: `Watching `, video });
+  return res.render("watch", { pageTitle: `Watching ` });
 };
 
 export const getEdit = (req, res) => {
