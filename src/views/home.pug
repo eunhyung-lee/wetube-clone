@@ -8,8 +8,6 @@ block editLink
                 a(href="/videos/upload") Upload Video
                 
 block content 
-    h2 welcome to trending videos
-    
     each info in videos 
         +video(info)
     else 
