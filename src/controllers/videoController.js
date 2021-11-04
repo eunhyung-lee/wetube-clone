@@ -3,14 +3,15 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   // Video.find({}, (error, videos) => {
-  // });
+  // }); call back function
   try {
     const videos = await Video.find({});
-    return res.render("home", { pageTitle: "Home", videos: [] });
+    return res.render("home", { pageTitle: "Home", videos });
   } catch {
     return res.render("server-error");
   }
 };
+
 export const see = (req, res) => {
   const id = req.params.id;
   return res.render("watch", { pageTitle: `Watching ` });
@@ -31,7 +32,18 @@ export const postEdit = (req, res) => {
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload Video" });
 export const postUpload = (req, res) => {
-  //here we will add a video to the videos array
-
+  //here we will add a video
+  const { title, description, hashtags } = req.body;
+  const video = new Video({
+    title,
+    description,
+    createdAt: Date.now(),
+    hashtags: hashtags.split(",").map((word) => `#${word}`),
+    meta: {
+      views: 0,
+      rating: 0,
+    },
+  });
+  console.log(video);
   return res.redirect("/");
 };

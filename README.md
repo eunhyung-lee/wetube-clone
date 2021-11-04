@@ -92,3 +92,6 @@ First nodejs Course.
 23. models : database에 data의 형태를 설명
 24. callback, promise
     sudo service mongodb start
+    25 return은 중요하지 않다. 없어도 작동함.
+    render후에는 render가 불가능하다. 따라서 return을 사용하여 function을 종료, render가 두번되게 하지 않는다.
+25. .split(",").map(word=> `#${word}`)
