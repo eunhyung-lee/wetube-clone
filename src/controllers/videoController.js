@@ -6,6 +6,7 @@ export const home = async (req, res) => {
   // }); call back function
   try {
     const videos = await Video.find({});
+    console.log(videos);
     return res.render("home", { pageTitle: "Home", videos });
   } catch {
     return res.render("server-error");
@@ -31,7 +32,7 @@ export const postEdit = (req, res) => {
 };
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload Video" });
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   //here we will add a video
   const { title, description, hashtags } = req.body;
   const video = new Video({
@@ -44,6 +45,7 @@ export const postUpload = (req, res) => {
       rating: 0,
     },
   });
-  console.log(video);
+  await video.save(); // database에 저장
+
   return res.redirect("/");
 };
