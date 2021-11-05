@@ -6,7 +6,6 @@ export const home = async (req, res) => {
   // }); call back function
   try {
     const videos = await Video.find({});
-    console.log(videos);
     return res.render("home", { pageTitle: "Home", videos });
   } catch {
     return res.render("server-error");
@@ -30,8 +29,9 @@ export const postEdit = (req, res) => {
   const title = req.body.title;
   return res.redirect(`/videos/${id}`);
 };
-export const getUpload = (req, res) =>
-  res.render("upload", { pageTitle: "Upload Video" });
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload Video" });
+};
 export const postUpload = async (req, res) => {
   //here we will add a video
   const { title, description, hashtags } = req.body;
@@ -40,12 +40,16 @@ export const postUpload = async (req, res) => {
     description,
     createdAt: Date.now(),
     hashtags: hashtags.split(",").map((word) => `#${word}`),
-    meta: {
-      views: 0,
-      rating: 0,
-    },
   });
-  await video.save(); // database에 저장
-
-  return res.redirect("/");
+  try {
+    await video.save(); // database에 저장
+    return res.redirect("/");
+  } catch (error) {
+    //error 처리
+    return res.render("upload", {
+      pageTitle: "Upload Video",
+      errorMessage: error._message,
+    });
+  }
+  //await Video.create({}) <<로 생성 가능
 };
