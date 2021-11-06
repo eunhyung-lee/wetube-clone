@@ -12,22 +12,31 @@ export const home = async (req, res) => {
   }
 };
 
-export const see = async (req, res) => {
+export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id);
-  return res.render("watch", { pageTitle: `Watching ${video.title} `, video });
+  const video = await Video.findById(id); //exec이 query를 실행(promise)
+  if (!video) {
+    return res.render("404", { pageTitle: "Video not found" });
+  }
+  return res.render("watch", {
+    pageTitle: `Watching ${video.title} `,
+    video,
+  });
 };
 
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
-  return res.render("edit", { pageTitle: `Watching ${video.title} `, video });
+  if (!video) {
+    return res.render("404", { pageTitle: "Video not found" });
+  } //error 처리
+  return res.render("edit", { pageTitle: `Edit ${video.title} `, video });
 };
 // export const search = (req, res) => res.send("search");
 export const deleteVideo = (req, res) => res.send("delete");
 export const postEdit = (req, res) => {
   //Edit 후
-  const id = req.params.id;
+  const { id } = req.params;
   const title = req.body.title;
   return res.redirect(`/videos/${id}`);
 };

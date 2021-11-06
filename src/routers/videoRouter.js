@@ -1,6 +1,6 @@
 import express from "express"; // express 불러오기
 import {
-  see,
+  watch,
   getEdit,
   getUpload,
   deleteVideo,
@@ -10,7 +10,7 @@ import {
 const videoRouter = express.Router();
 
 videoRouter.route("/upload").get(getUpload).post(postUpload); // upload가 제일 위로 가야됨
-videoRouter.get("/:id([0-9a-f]{24})", see); //id는 숫자만 해당.
+videoRouter.get("/:id([0-9a-f]{24})", watch); //id는 숫자만 해당.
 
 // videoRouter.get("/:id(\\d+)/edit", getEdit);
 // videoRouter.post("/:id(\\d+)/edit", postEdit); //POST method 사용
