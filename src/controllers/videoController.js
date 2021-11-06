@@ -34,9 +34,13 @@ export const getEdit = async (req, res) => {
 };
 // export const search = (req, res) => res.send("search");
 export const deleteVideo = (req, res) => res.send("delete");
-export const postEdit = (req, res) => {
+export const postEdit = async (req, res) => {
   //Edit 후
   const { id } = req.params;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.render("404", { pageTitle: "Video not found" });
+  } //error 처리
   const title = req.body.title;
   return res.redirect(`/videos/${id}`);
 };
@@ -50,7 +54,9 @@ export const postUpload = async (req, res) => {
     title: title,
     description: description,
     createdAt: Date.now(),
-    hashtags: hashtags.split(",").map((word) => `#${word}`),
+    hashtags: hashtags
+      .split(",")
+      .map((word) => (word.startsWith("#") ? word : `#${word}`)),
   });
   try {
     await video.save(); // database에 저장
