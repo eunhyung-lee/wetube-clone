@@ -24,6 +24,7 @@ export const watch = async (req, res) => {
   });
 };
 
+export const deleteVideo = (req, res) => res.send("delete");
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -33,15 +34,24 @@ export const getEdit = async (req, res) => {
   return res.render("edit", { pageTitle: `Edit ${video.title} `, video });
 };
 // export const search = (req, res) => res.send("search");
-export const deleteVideo = (req, res) => res.send("delete");
 export const postEdit = async (req, res) => {
   //Edit 후
   const { id } = req.params;
-  const video = await Video.findById(id);
+  const { title, description, hashtags } = req.body;
+  const video = await Video.exists({ _id: id });
   if (!video) {
     return res.render("404", { pageTitle: "Video not found" });
   } //error 처리
-  const title = req.body.title;
+  await Video.findByIdAndUpdate(id, {
+    title,
+    description,
+    hashtags: hashtags
+      .split(",")
+      .map((word) =>
+        word.startsWith("#") ? `#${word.slice(1).trim()}` : `#${word.trim()}`
+      ),
+  });
+
   return res.redirect(`/videos/${id}`);
 };
 export const getUpload = (req, res) => {
@@ -56,7 +66,9 @@ export const postUpload = async (req, res) => {
     createdAt: Date.now(),
     hashtags: hashtags
       .split(",")
-      .map((word) => (word.startsWith("#") ? word : `#${word}`)),
+      .map((word) =>
+        word.startsWith("#") ? `#${word.slice(1).trim()}` : `#${word.trim()}`
+      ),
   });
   try {
     await video.save(); // database에 저장
