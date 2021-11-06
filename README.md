@@ -96,3 +96,4 @@ First nodejs Course.
     render후에는 render가 불가능하다. 따라서 return을 사용하여 function을 종료, render가 두번되게 하지 않는다.
 25. .split(",").map(word=> `#${word}`)
 26. mongoose에 잘못된 data를 보낼 경우 data가 입력되지 않음
+27. schema options

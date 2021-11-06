@@ -1,4 +1,4 @@
-import { reset } from "nodemon";
+// import { reset } from "nodemon";
 import Video from "../models/Video";
 
 export const home = async (req, res) => {
@@ -14,7 +14,7 @@ export const home = async (req, res) => {
 
 export const see = (req, res) => {
   const id = req.params.id;
-  return res.render("watch", { pageTitle: `Watching ` });
+  return res.render("watch", { pageTitle: `Watching  ` });
 };
 
 export const getEdit = (req, res) => {
@@ -36,8 +36,8 @@ export const postUpload = async (req, res) => {
   //here we will add a video
   const { title, description, hashtags } = req.body;
   const video = new Video({
-    title,
-    description,
+    title: title,
+    description: description,
     createdAt: Date.now(),
     hashtags: hashtags.split(",").map((word) => `#${word}`),
   });
