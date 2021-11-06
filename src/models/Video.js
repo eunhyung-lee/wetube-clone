@@ -12,6 +12,14 @@ const videoSchema = new mongoose.Schema({
   },
 });
 
+videoSchema.pre("save", async function () {
+  // this << 실행하는 document
+  this.hashtags = this.hashtags[0]
+    .split(",")
+    .map((word) =>
+      word.startsWith("#") ? `#${word.slice(1).trim()}` : `#${word.trim()}`
+    );
+});
 const Video = mongoose.model("Video", videoSchema);
 
 export default Video;

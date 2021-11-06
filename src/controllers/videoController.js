@@ -45,11 +45,7 @@ export const postEdit = async (req, res) => {
   await Video.findByIdAndUpdate(id, {
     title,
     description,
-    hashtags: hashtags
-      .split(",")
-      .map((word) =>
-        word.startsWith("#") ? `#${word.slice(1).trim()}` : `#${word.trim()}`
-      ),
+    hashtags,
   });
 
   return res.redirect(`/videos/${id}`);
@@ -64,11 +60,7 @@ export const postUpload = async (req, res) => {
     title: title,
     description: description,
     createdAt: Date.now(),
-    hashtags: hashtags
-      .split(",")
-      .map((word) =>
-        word.startsWith("#") ? `#${word.slice(1).trim()}` : `#${word.trim()}`
-      ),
+    hashtags,
   });
   try {
     await video.save(); // database에 저장
