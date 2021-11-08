@@ -12,10 +12,12 @@ const videoRouter = express.Router();
 videoRouter.route("/upload").get(getUpload).post(postUpload); // upload가 제일 위로 가야됨
 videoRouter.get("/:id([0-9a-f]{24})", watch); //id는 숫자만 해당.
 
+//edit video router
 // videoRouter.get("/:id(\\d+)/edit", getEdit);
 // videoRouter.post("/:id(\\d+)/edit", postEdit); //POST method 사용
 videoRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
 
-// videoRouter.get("/:id(\\d+)/delete", deleteVideo);
+//delete video router
+videoRouter.route("/:id([0-9a-f]{24})/delete").get(deleteVideo);
 
 export default videoRouter;

@@ -24,7 +24,18 @@ export const watch = async (req, res) => {
   });
 };
 
-export const deleteVideo = (req, res) => res.send("delete");
+//delete video
+export const deleteVideo = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.render("404", { pageTitle: "Video not found" });
+  }
+  //error 검증
+  await Video.findByIdAndDelete(id);
+  return res.redirect("/");
+};
+
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
