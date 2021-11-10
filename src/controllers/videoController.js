@@ -86,8 +86,23 @@ export const postUpload = async (req, res) => {
 };
 
 //search controller
-export const search = (req, res) => {
+export const search = async (req, res) => {
   const { keyword } = req.query;
-  console.log(keyword);
-  return res.render("search", { pageTitle: "search" });
+  let videos = [];
+  if (keyword) {
+    //search
+    videos = await Video.find({
+      //filter epression
+      title: {
+        //regular expression
+        $regex: new RegExp(keyword, "i"), //대소문자 무시
+        //^word << start with word
+        //word$ << end with word
+      },
+    });
+    if (!videos.length) {
+      console.log("nothing found");
+    }
+  }
+  return res.render("search", { pageTitle: "search", videos });
 };
