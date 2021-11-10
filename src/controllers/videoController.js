@@ -5,7 +5,7 @@ export const home = async (req, res) => {
   // Video.find({}, (error, videos) => {
   // }); call back function
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ createdAt: "desc" });
     return res.render("home", { pageTitle: "Home", videos });
   } catch {
     return res.render("server-error");
@@ -44,7 +44,6 @@ export const getEdit = async (req, res) => {
   } //error 처리
   return res.render("edit", { pageTitle: `Edit ${video.title} `, video });
 };
-// export const search = (req, res) => res.send("search");
 export const postEdit = async (req, res) => {
   //Edit 후
   const { id } = req.params;
@@ -84,4 +83,11 @@ export const postUpload = async (req, res) => {
     });
   }
   //await Video.create({}) <<로 생성 가능
+};
+
+//search controller
+export const search = (req, res) => {
+  const { keyword } = req.query;
+  console.log(keyword);
+  return res.render("search", { pageTitle: "search" });
 };
