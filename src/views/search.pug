@@ -6,5 +6,9 @@ block content
         input(name = "keyword",Placeholder="Search by title", type = "text")
         input(type="submit", value="search")
 
-    each video in videos 
-        +video(video)
+    if keyword
+        h4 #{videos === [] ? "" : `i found ${videos.length} videos!`}
+        //- I found #{videos.length} videos!
+        each video in videos 
+            +video(video)   
+    

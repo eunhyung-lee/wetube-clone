@@ -104,5 +104,5 @@ export const search = async (req, res) => {
       console.log("nothing found");
     }
   }
-  return res.render("search", { pageTitle: "search", videos });
+  return res.render("search", { pageTitle: "search", videos, keyword });
 };
