@@ -90,8 +90,7 @@ First nodejs Course.
 21. express가 form을 처리하기 위해선 express.urlencoded를 사용해야됨. extended:true 사용. input에 name을 기준으로 가졍 22. 순서 : 1. controller, 2.router, 3.template
 22. CRUD Create, Read, Update, Delete
 23. models : database에 data의 형태를 설명
-24. callback, promise
-    ****\*\*****\*****\*\*****sudo service mongodb start**\*\*\*\***\*\*\*\***\*\***
+24. callback, promise \***\*\*\*\*\***\*\***\*\*\*\*\***sudo service mongodb start**\*\*\*\***\*\*\*\***\*\***
     25 return은 중요하지 않다. 없어도 작동함.
     render후에는 render가 불가능하다. 따라서 return을 사용하여 function을 종료, render가 두번되게 하지 않는다.
 25. .split(",").map(word=> `#${word}`)
@@ -119,3 +118,4 @@ First nodejs Course.
 38. db 컬렉션 안에 documents 모두 제거하기
     > db.collectionName.remove({})
     > (현재 수업에서는 `db.videos.find({})`)
+39.
