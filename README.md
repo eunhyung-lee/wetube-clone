@@ -115,7 +115,5 @@ First nodejs Course.
 37. db 컬렉션 안에 documents 보기
     > db.collectionName.find()
     > (현재 수업에서는 `db.videos.find()`)
-38. db 컬렉션 안에 documents 모두 제거하기
-    > db.collectionName.remove({})
-    > (현재 수업에서는 `db.videos.find({})`)
-39.
+38. db 컬렉션 안에 documents 모두 제거하기 > db.collectionName.remove({}) > (현재 수업에서는 `db.videos.find({})`)
+    39.bcrypt
