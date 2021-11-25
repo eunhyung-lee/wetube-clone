@@ -62,6 +62,9 @@ export const postLogin = async (req, res) => {
     });
   }
 
+  //login session 정보를 기억
+  req.session.loggedIn = true;
+  req.session.user = user;
   return res.redirect("/");
 };
 
