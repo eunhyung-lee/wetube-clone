@@ -118,3 +118,4 @@ First nodejs Course.
 38. db 컬렉션 안에 documents 모두 제거하기 > db.collectionName.remove({}) > (현재 수업에서는 `db.videos.find({})`)
 39. bcrypt
 40. https://ko.wikipedia.org/wiki/HTTP_%EC%83%81%ED%83%9C_%EC%BD%94%EB%93%9C
+41. res.locals : 변수를 global하게 사용할 수 있다
