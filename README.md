@@ -119,3 +119,4 @@ First nodejs Course.
 39. bcrypt
 40. https://ko.wikipedia.org/wiki/HTTP_%EC%83%81%ED%83%9C_%EC%BD%94%EB%93%9C
 41. res.locals : 변수를 global하게 사용할 수 있다
+42. session id는 쿠키에 저장, data 는 server에 저장된다. 따라서 session store를 사용해야됨
