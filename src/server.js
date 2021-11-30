@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
     secret: "Hello!",
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false, // session이 수정되지 않을 경우 저장하지 않음
     store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/wetube" }),
   })
 );

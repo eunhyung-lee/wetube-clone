@@ -104,7 +104,7 @@ First nodejs Course.
 32. 몽고 사용하기
     > mongo
 33. 내가 가진 db 보기
-    > show dbs
+    > show dbs  
 34. 현재 사용 중인 db 확인
     > db
 35. 사용할 db 선택하기
