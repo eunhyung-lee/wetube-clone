@@ -18,10 +18,16 @@ app.use(express.urlencoded({ extended: true }));
 //session middleware
 app.use(
   session({
-    secret: "Hello!",
+    //dinaub : cookie를 만든 server가 누구인지 적혀있음
+    //expires : expire
+    //Max--age :
+    secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false, // session이 수정되지 않을 경우 저장하지 않음
-    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/wetube" }),
+    cookie: {
+      maxAge: 86400000, // millisecond단위
+    },
+    store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
 
