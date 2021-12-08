@@ -1,3 +1,5 @@
+//require("dotenv").config(); // .env 사용을 위한 require
+import "dotenv/config";
 import "./db";
 import "./models/Video";
 import "./models/User";
