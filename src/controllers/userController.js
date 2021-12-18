@@ -1,6 +1,7 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
 import { request } from "express";
+import fetch from "node-fetch";
 export const getJoin = (req, res) => {
   return res.render("join", { pageTitle: "Create Account" });
 };
@@ -91,16 +92,33 @@ export const finishGithubLogin = async (req, res) => {
     client_secret: process.env.GH_SECRET,
     code: req.query.code,
   };
-  const finalURL = `${baseURL}?${params}`;
   const params = new URLSearchParams(config).toString();
-  const data = await fetch(finalURL, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const json = await data.json();
-  console.log(json);
+  const finalURL = `${baseURL}?${params}`;
+
+  const tokenRequest = await (
+    await fetch(finalURL, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+  if ("access_token" in tokenRequest) {
+    //access api
+
+    const { access_token } = tokenRequest;
+    const userRequest = await (
+      await fetch("https://api.github.com/user", {
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      })
+    ).json();
+    console.log(userRequest);
+  } else {
+    //github login 실패할 경우
+    return res.redirect("/login");
+  }
 };
 
 export const remove = (req, res) => res.send("remove");
