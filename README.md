@@ -104,7 +104,7 @@ First nodejs Course.
 32. 몽고 사용하기
     > mongo
 33. 내가 가진 db 보기
-    > show dbs  
+    > show dbs
 34. 현재 사용 중인 db 확인
     > db
 35. 사용할 db 선택하기
@@ -120,3 +120,4 @@ First nodejs Course.
 40. https://ko.wikipedia.org/wiki/HTTP_%EC%83%81%ED%83%9C_%EC%BD%94%EB%93%9C
 41. res.locals : 변수를 global하게 사용할 수 있다
 42. session id는 쿠키에 저장, data 는 server에 저장된다. 따라서 session store를 사용해야됨
+43. ://github.com/settings/applications/1786309
