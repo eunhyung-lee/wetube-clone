@@ -114,7 +114,6 @@ export const finishGithubLogin = async (req, res) => {
         },
       })
     ).json();
-    console.log(userData);
 
     //user email 가져오기
     const emailData = await (
@@ -124,7 +123,37 @@ export const finishGithubLogin = async (req, res) => {
         },
       })
     ).json();
-    console.log(emailData);
+    //primary와 verified 가 전부 true인 data 찾기
+    const emailObj = emailData.find(
+      (email) => email.primary === true && email.verified === true
+    );
+    //email 이 없을 경우
+    if (!emailObj) {
+      return res.redirect("/login");
+    }
+    //email이 이미 있는지 찾기
+    const existingUser = await User.findOne({ email: emailObj.email });
+    if (existingUser) {
+      //동일 email을 가진 user를 찾을 경우 login 시켜줌
+      req.session.loggedIn = true;
+      req.session.user = existingUser;
+      return res.redirect("/");
+    } else {
+      //계정이 없을 경우
+      //Create an account
+      const user = await User.create({
+        name: userData.name,
+        username: userData.login,
+        email: emailObj.email,
+        password: "",
+        socialOnly: true,
+        location: userData.location,
+      });
+      //login
+      req.session.loggedIn = true;
+      req.session.user = user;
+      return res.redirect("/");
+    }
   } else {
     //github login 실패할 경우
     return res.redirect("/login");
